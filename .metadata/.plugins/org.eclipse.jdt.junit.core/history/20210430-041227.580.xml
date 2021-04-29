@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRunner" project="CucumberProj" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="CucumberRunner.TestRunner" time="112.361">
+    <testsuite name="Validates manage settings functionality" time="112.361">
+      <testcase name="Add/Remove Call forwarding opting" classname="Validates manage settings functionality" time="112.361">
+        <error>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of any elements located by By.xpath: //*[@class='ama-hero-heading popup-success white']/following-sibling::a (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'PHMA013IBN', ip: '2001:4451:80e:a500:7d2b:7cd7:7b13:87e5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 90.0.4430.93, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /var/folders/qm/6w75dbwj3xq...}, goog:chromeOptions: {debuggerAddress: localhost:54331}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9d4bf8dff2be3cc3ad73039a0f55e7df
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at userdefinedfunctions.SampleTestPage.FuncPage.callFwdOption(FuncPage.java:122)
+	at StepDefinitions.SampleTest_StepDef.callFwdFunc(SampleTest_StepDef.java:86)
+	at ✽.updates call forwarding option(file:///Users/garypantorillo/Documents/DemoCucumber/CucumberProj/src/test/resources/FeatureFile/SampleTest.feature:30)
+
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

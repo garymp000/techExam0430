@@ -1,0 +1,22 @@
+
+public class SamplePage_StepDef {
+	
+	@Given("I access the something")
+	public void i_access_the_something() {
+	    System.out.println("asdasd");
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I input something")
+	public void i_input_something() {
+		System.out.println("sadsd");
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I see something")
+	public void i_see_something() {
+		System.out.println("asdasadasdssd");
+	    throw new io.cucumber.java.PendingException();
+	}
+
+}

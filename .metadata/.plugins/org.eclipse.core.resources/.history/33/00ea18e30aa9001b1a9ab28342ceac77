@@ -1,0 +1,48 @@
+package StepDefinitions;
+
+import static org.junit.Assert.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import common.initWeb;
+import io.cucumber.java.en.And;
+
+import io.cucumber.java.en.Then;
+
+import userdefinedfunctions.SampleTestPage.mySettingsPage;
+
+public class SampleTest_StepDef {
+	WebDriver driver = new ChromeDriver();;
+	initWeb webTest = new initWeb();
+	mySettingsPage settingsFunc = new mySettingsPage();
+	
+	@And("update sim nickname with \"([^\"]*)\"$")
+	public void updateNick(String simNickname) {
+		System.out.println(settingsFunc.updateSimNick(simNickname));
+		
+//		
+//		try {
+//			assertEquals("Update success", ));
+//		}
+//		catch (Exception e) {
+//			assertEquals("Failed", false, true);
+//		}
+	
+	}
+	
+	@And("update recharge pin with \"([^\"]*)\"$")
+	public void updateRechargePin(String rechargepin) {
+		System.out.println(settingsFunc.updateRechargePin(rechargepin));
+		
+	}
+
+	
+	
+	@Then("all changes should work as expected")
+	public void expectedBehaviour() {
+		 System.out.println("something1");
+		webTest.closeBrowser();
+}
+}

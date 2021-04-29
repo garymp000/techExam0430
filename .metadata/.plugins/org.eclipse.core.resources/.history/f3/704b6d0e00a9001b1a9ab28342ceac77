@@ -1,0 +1,25 @@
+package common;
+
+import static org.junit.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class NavigateTo {
+	
+	WebDriver driver = null;
+	public void myAmaysimDashboard(String amaysimNo, String amaysimPw) {
+		driver.findElement(By.id("lightningjs-usabilla_live")).click();
+		driver.findElement(By.id("username")).sendKeys(amaysimNo);;
+		driver.findElement(By.id("password")).sendKeys(amaysimPw);;
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+	}
+	
+	public void myAmaysimSettings() {
+		driver.findElement(By.xpath("//*[@id='service_tile_mobile']/child::div[1]")).click();
+		driver.findElement(By.xpath("//*[@id='menu_list']/li[8]/child::a[@href='/my-account/my-amaysim/settings']")).click();
+		
+	}
+
+}

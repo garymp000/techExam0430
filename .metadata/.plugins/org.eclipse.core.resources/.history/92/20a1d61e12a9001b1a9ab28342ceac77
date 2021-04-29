@@ -1,0 +1,76 @@
+package userdefinedfunctions.SampleTestPage;
+
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class FuncPage {
+	WebDriver driver = null;
+//	WebDriverWait wait = new WebDriverWait(driver, 10);
+	String SaveButton = "//input[@type='submit' and @value='Save']";
+	
+	
+//	public FuncPage(WebDriver driver) {
+//		this.driver = driver;
+//	}
+	
+	
+	
+	public void openBrowser() {
+
+		String projPath = System.getProperty("user.dir");
+		System.out.println(projPath);
+		System.setProperty("webdriver.chrome.driver", projPath+"/src/test/resources/browserdriver/chromedriver");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().fullscreen();
+		driver.navigate().to("https://www.amaysim.com.au/");
+		}
+	
+	
+	public void goToDashboard(String amaysimNo, String amaysimPw) {
+		driver.findElement(By.id("lightningjs-usabilla_live")).click();
+		driver.findElement(By.id("username")).sendKeys(amaysimNo);;
+		driver.findElement(By.id("password")).sendKeys(amaysimPw);;
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+	}
+	
+	public void goTomyAmaysimSettings() {
+		driver.findElement(By.xpath("//*[@id='service_tile_mobile']/child::div[1]")).click();
+		driver.findElement(By.xpath("//*[@id='menu_list']/li[8]/child::a[@href='/my-account/my-amaysim/settings']")).click();
+		
+	}
+	
+	public String updateSimNick(String simNickname) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		driver.findElement(By.xpath("//*[@id='edit_settings_phone_label']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("my_amaysim2_setting_phone_label")));
+		driver.findElement(By.xpath("//input[@id='my_amaysim2_setting_phone_label']")).sendKeys(simNickname);
+		driver.findElement(By.xpath(SaveButton)).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{simNickName}}')]")));
+		String newNick = driver.findElement(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{simNickName}}')]")).getText();
+		return newNick;
+	}
+	
+	public String updateRechargePin(String rechargePin) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		driver.findElement(By.xpath("//*[@id='edit_settings_recharge_pin']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("my_amaysim2_setting_topup_pw")));
+		driver.findElement(By.xpath("//input[@id='my_amaysim2_setting_topup_pw']")).sendKeys(rechargePin);
+		driver.findElement(By.xpath(SaveButton)).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{rechargePin}}')]")));
+		String newRechargePin = driver.findElement(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{rechargePin}}')]")).getText();
+		return newRechargePin;
+	}
+
+
+
+}

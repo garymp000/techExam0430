@@ -1,0 +1,38 @@
+package StepDefinitions;
+
+import static org.junit.Assert.*;
+
+
+import common.initWeb;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class SampleTest_StepDef {
+	
+	initWeb initialize = new initWeb();
+	
+	@Given("I access the something")
+	public void i_access_the_something() {
+	    try {
+	    	assertEquals( true, false);
+	    	
+	    	
+	    } catch (Exception e) {
+	    	
+	    }
+//	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I input something")
+	public void i_input_something() {
+		 System.out.println("asdasd34324");
+		 assertTrue("Truelalu", false);
+		 
+	}
+	@Then("I see something")
+	public void i_see_something() {
+		 System.out.println("asdfdgfg        asd");
+
+}
+}

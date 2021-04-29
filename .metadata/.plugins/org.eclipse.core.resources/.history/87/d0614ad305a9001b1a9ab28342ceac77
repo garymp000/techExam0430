@@ -1,0 +1,33 @@
+Feature: Validates manage settings functionality
+
+  @tag1
+  Scenario Outline: Update my amaysim settings
+    Given user is accessing my account page
+    When user navigates to settings page
+    And update sim nickname
+    And update recharge pin
+    And validate puk code
+    And update caller id settings
+    And update call waiting settings
+    And update voicemail settings
+    And update usage alerts settings
+    And update international romaing settings
+    And update call forwarding option
+    And update premium sms limit option
+    And update auto credit top up option
+    Then all changes should work as expected
+    
+    Examples: 
+      | username   | password |
+      | 0481862258 | theHoff34 |
+
+      
+       Scenario: Sim Nickname
+       Scenario: Recharge PIN
+       Scenario: Caller ID
+       Voicemail
+       Usage alerts
+       Intertional Roaming
+       Call forwarding
+       Premium SMS limit
+       Auto credti top-up

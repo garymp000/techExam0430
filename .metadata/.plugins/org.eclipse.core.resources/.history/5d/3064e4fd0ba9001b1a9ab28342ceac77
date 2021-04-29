@@ -1,0 +1,36 @@
+package StepDefinitions;
+
+import common.NavigateTo;
+import common.initWeb;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+
+public class common_StepDef {
+	
+//	NavigateTo navTo = new NavigateTo();
+//	initWeb webTest = new initWeb();
+//	
+//	@Given("user is accessing my account page with \"([^\"]*)\",\"([^\"]*)\"$")
+//	public void loginToSite(String amaysimNo, String amaysimPw) {
+//		webTest.webChrome();
+//		try{navTo.myAmaysimDashboard(amaysimNo, amaysimPw);
+//		} catch (Exception e){
+//			System.out.println(e);
+//			
+//		}
+//	}
+//	
+//	
+//	@When("user navigates to settings page")
+//	public void goToSettings() {
+//		try	{navTo.myAmaysimSettings();;
+//		} 
+//		catch (Exception e){
+//			System.out.println(e);
+//		}
+		 
+		 
+	}
+	
+	
+}

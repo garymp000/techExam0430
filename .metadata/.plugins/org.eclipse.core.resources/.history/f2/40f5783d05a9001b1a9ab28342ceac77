@@ -1,0 +1,27 @@
+package userdefinedfunctions.SampleTestPage;
+
+import static org.junit.Assert.*;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class mySettingsPage {
+	WebDriver driver = null;
+	WebDriverWait wait = null;
+	
+	public void updateSimNick(String simNickname) {
+		driver.findElement(By.xpath("//*[@id='edit_settings_phone_label']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("my_amaysim2_setting_phone_label")));
+		driver.findElement(By.xpath("//input[@id='my_amaysim2_setting_phone_label']")).sendKeys(simNickname);
+		driver.findElement(By.xpath("//input[@type='submit' and @value='Save']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{simNickName}}')]")));
+		assertEquals( true, true);
+		
+		
+	}
+
+
+
+}

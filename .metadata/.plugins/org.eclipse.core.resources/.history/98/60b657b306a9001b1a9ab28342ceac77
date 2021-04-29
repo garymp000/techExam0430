@@ -1,0 +1,12 @@
+package StepDefinitions;
+
+import io.cucumber.java.en.Given;
+
+public class common_StepDef {
+	
+	@Given("user is accessing my account page with \"([^\"]*)\",\"([^\"]*\"$")
+	public void loginToSite() {
+
+}
+	
+}

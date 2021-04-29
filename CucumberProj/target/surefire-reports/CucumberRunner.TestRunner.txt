@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: CucumberRunner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 15.405 sec <<< FAILURE!
+I want to do something #1(Sample Feature Only)  Time elapsed: 7.87 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'I see String_String' is undefined.
+You can implement this step using the snippet(s) below:
+
+@Then("I see String_String")
+public void i_see_string_string() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I want to do something #2(Sample Feature Only)  Time elapsed: 7.214 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'I see String_Strings' is undefined.
+You can implement this step using the snippet(s) below:
+
+@Then("I see String_Strings")
+public void i_see_string_strings() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

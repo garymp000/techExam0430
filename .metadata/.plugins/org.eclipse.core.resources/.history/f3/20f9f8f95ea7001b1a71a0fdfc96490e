@@ -1,0 +1,32 @@
+package CucumberRunner;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+import common.initWeb;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;  
+
+@RunWith(Cucumber.class) 
+@CucumberOptions(features="src/test/resources/FeatureFile",
+glue={"StepDefinitions"},
+monochrome = true,
+plugin = { "pretty", "html:target/reports"},
+tags ="@tag1")
+public class TestRunner {
+	
+	initWeb initialize = new initWeb();
+	 @BeforeClass
+	    public static void goToURL() {
+		 initWeb initialize = new initWeb();
+		 initialize.webChrome("https://google.com");
+	 }
+
+
+	    @AfterClass
+	    public static void tearDown() {
+	    
+	    }
+	
+}

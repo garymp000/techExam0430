@@ -1,0 +1,36 @@
+package StepDefinitions;
+
+import common.initWeb;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class SampleTest_StepDef {
+	
+	initWeb initialize = new initWeb();
+	
+	@Given("I access the something")
+	public void i_access_the_something() {
+	    try {
+	    	//initialize.webChrome("https://google.com");
+	    	
+	    	
+	    } catch (Exception e) {
+	    	
+	    }
+//	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I input something")
+	public void i_input_something() {
+		 System.out.println("asdasd34324");
+//		 throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I see something")
+	public void i_see_something() {
+		 System.out.println("asdfdgfg        asd");
+//		throw new io.cucumber.java.PendingException();
+	}
+
+}

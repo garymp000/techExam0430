@@ -1,0 +1,12 @@
+Feature: Sample Feature Only
+
+  @tag1
+  Scenario Outline: I want to do something
+    Given I access the something
+    When I input something
+    Then I see <something1>
+
+    Examples: 
+      | something1 |
+      |        String 1 |
+      |       String 2 |

@@ -1,0 +1,41 @@
+package userdefinedfunctions.SampleTestPage;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class mySettingsPage {
+	WebDriver driver;
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	String SaveButton = "//input[@type='submit' and @value='Save']";
+	
+	
+	public mySettingsPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public String updateSimNick(String simNickname) {
+		driver.findElement(By.xpath("//*[@id='edit_settings_phone_label']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("my_amaysim2_setting_phone_label")));
+		driver.findElement(By.xpath("//input[@id='my_amaysim2_setting_phone_label']")).sendKeys(simNickname);
+		driver.findElement(By.xpath(SaveButton)).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{simNickName}}')]")));
+		String newNick = driver.findElement(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{simNickName}}')]")).getText();
+		return newNick;
+	}
+	
+	public String updateRechargePin(String rechargePin) {
+		driver.findElement(By.xpath("//*[@id='edit_settings_recharge_pin']")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("my_amaysim2_setting_topup_pw")));
+		driver.findElement(By.xpath("//input[@id='my_amaysim2_setting_topup_pw']")).sendKeys(rechargePin);
+		driver.findElement(By.xpath(SaveButton)).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{rechargePin}}')]")));
+		String newRechargePin = driver.findElement(By.xpath("//*[@class='small-12 columns margin-top-half bold setting-option-details-text' and contains(text(),'{{rechargePin}}')]")).getText();
+		return newRechargePin;
+	}
+
+
+
+}

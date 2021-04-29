@@ -1,0 +1,84 @@
+package StepDefinitions;
+
+import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import common.NavigateTo;
+import common.initWeb;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import userdefinedfunctions.SampleTestPage.mySettingsPage;
+
+public class SampleTest_StepDef {
+	WebDriver driver = null;
+	initWeb webTest = new initWeb();
+	mySettingsPage settingsFunc = new mySettingsPage(null);
+	NavigateTo navTo = new NavigateTo();
+
+	@Given("chrome browser is open")
+	public void openBrowser() {
+		String projPath = System.getProperty("user.dir");
+		System.out.println(projPath);
+		System.setProperty("webdriver.chrome.driver", projPath+"/src/test/resources/browserdriver/chromedriver");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().fullscreen();
+		driver.navigate().to("https://www.amaysim.com.au/");
+		}
+	
+	
+	@When("user access my account page with \"([^\"]*)\",\"([^\"]*)\"$")
+	public void loginToSite(String amaysimNo, String amaysimPw) {
+		webTest.webChrome();
+		try{navTo.myAmaysimDashboard(amaysimNo, amaysimPw);
+		} catch (Exception e){
+			System.out.println(e);
+			
+		}
+	}
+	
+	@And("user navigates to settings page")
+	public void goToSettings() {
+		try	{navTo.myAmaysimSettings();;
+		} 
+		catch (Exception e){
+			System.out.println(e);
+		}
+		
+	}
+	
+	@And("update sim nickname with \"([^\"]*)\"$")
+	public void updateNick(String simNickname) {
+		System.out.println(settingsFunc.updateSimNick(simNickname));
+		
+//		
+//		try {
+//			assertEquals("Update success", ));
+//		}
+//		catch (Exception e) {
+//			assertEquals("Failed", false, true);
+//		}
+	
+	}
+	
+	@And("update recharge pin with \"([^\"]*)\"$")
+	public void updateRechargePin(String rechargepin) {
+		System.out.println(settingsFunc.updateRechargePin(rechargepin));
+		
+	}
+
+	
+	
+	@Then("all changes should work as expected")
+	public void expectedBehaviour() {
+		 System.out.println("something1");
+		webTest.closeBrowser();
+}
+}

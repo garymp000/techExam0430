@@ -1,0 +1,12 @@
+
+
+@tag
+Feature: Sample Feature Only
+
+  @tag1
+  Scenario: I want to do something
+    Given I access the something
+    When I input something
+    Then I see something
+
+  
